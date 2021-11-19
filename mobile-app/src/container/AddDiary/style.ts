@@ -21,8 +21,8 @@ export default StyleSheet.create({
     },
     backgroundImage: {
         alignSelf: 'center',
-        width: '70%',
-        height: '40%',
+        width: '80%',
+        height: '100%',
         backgroundColor: colors.white
     },
     title: {

@@ -11,7 +11,7 @@ export type diary = {
   feeling: string;
   userID: number;
   agreement: boolean;
-  comments: Array<comment>;
+  comments?: Array<comment>;
   createdOn?: string;
 };
 

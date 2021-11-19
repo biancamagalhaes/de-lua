@@ -19,16 +19,17 @@ type Props = {
     navigateDiary: (id: number) =>  void;
     navigationBack: () =>  void;
     loadDiariesByUser: (id: string) => Promise<void>;
-    diaries: Array<diary>;
-    userID: number
+    diary: any;
+    user: any
 }
 
-const ViewDiaries = ({navigateDiary, navigationBack, loadDiariesByUser, diaries, userID}: Props) => {
+const ViewDiaries = ({navigateDiary, navigationBack, loadDiariesByUser, diary, user}: Props) => {
 
     useEffect(() => {
-        console.log(userID);
-        userID && loadDiariesByUser(userID.toString());
+        loadDiariesByUser(user.patient.id.toString());
     }, []);
+
+    const {diaries} = diary;
 
     return (
         <View
@@ -73,7 +74,11 @@ const DiaryComponent = ({index, date, text, emotion, onClick}: DiaryProps) => (
     </TouchableOpacity>
 );
 
-export default connect(getDiariesByUser, (dispatch: any) => ({
+export default connect(
+    (state: {diary: any, user: any}) => ({
+        diary: state.diary,
+        user: state.user
+    }), (dispatch: any) => ({
     loadDiariesByUser: (id: string) => dispatch(loadDiariesByUser(id))
 }))(ViewDiaries);
 

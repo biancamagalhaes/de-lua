@@ -11,6 +11,8 @@ import CheckBox from '../../components/CheckBox';
 import { createDiary, diary } from "../../ducks/diary";
 import { getPatient, patient } from "../../ducks/user";
 
+import luas from '../../config/luas';
+
 import styles from './style';
 
 type Props = {
@@ -27,36 +29,13 @@ const AddDiary = ({onClick, createDiary, patient}: Props) => {
     const [checkBox, setCheckBox] = useState(false);
     const [errorCheckBox, setErrorCheckBox] = useState();
 
-    const dataFeelings = [
-        {
-            id: 1,
-            image: require('../../images/lua_raiva.png'),
-            description: 'Raiva',
-            selected: selectedButton === 1,
-            onClick: () => {setSelectedButton(1)},
-        },
-        {
-            id: 2,
-            image: require('../../images/lua_raiva.png'),
-            description: 'Raiva',
-            selected: selectedButton === 2,
-            onClick: () => {setSelectedButton(2)},
-        },
-        {
-            id: 3,
-            image: require('../../images/lua_raiva.png'),
-            description: 'Raiva',
-            selected: selectedButton === 3,
-            onClick: () => {setSelectedButton(3)},
-        },
-        {
-            id: 4,
-            image: require('../../images/lua_raiva.png'),
-            description: 'Raiva',
-            selected: selectedButton === 4,
-            onClick: () => {setSelectedButton(4)},
-        }
-    ]
+    const dataFeelings = luas.map((lua: {image: string, sentimento: string}, index: number) => ({
+            id: index,
+            image: lua.image,
+            description: lua.sentimento,
+            selected: selectedButton === index,
+            onClick: () => {setSelectedButton(index)},
+    }));
 
     const onSubmit = () => {
         setErrorButton(undefined);
@@ -103,19 +82,18 @@ const AddDiary = ({onClick, createDiary, patient}: Props) => {
         >
             <View
                 style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: 'center',
-                    alignContent: 'center',
                     paddingHorizontal: 20,
-                    paddingVertical: 5
+                    paddingVertical: 5,
+                    maxHeight: 35
                 }}
             >
                 <Image
                     source={require('../../images/logo.png')}
                     style={styles.backgroundImage}
                 />
-                <ButtonIcon image={require('../../images/diary.png')} onClick={() => patient.id && onClick(patient.id)}/>
             </View>
             <SelectLua
                 data={dataFeelings}

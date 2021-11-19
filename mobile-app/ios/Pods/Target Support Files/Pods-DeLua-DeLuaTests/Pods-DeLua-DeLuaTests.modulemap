@@ -1,0 +1,6 @@
+module Pods_DeLua_DeLuaTests {
+  umbrella header "Pods-DeLua-DeLuaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

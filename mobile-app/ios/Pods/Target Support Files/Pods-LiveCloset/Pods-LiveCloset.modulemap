@@ -1,6 +1,0 @@
-module Pods_LiveCloset {
-  umbrella header "Pods-LiveCloset-umbrella.h"
-
-  export *
-  module * { export * }
-}

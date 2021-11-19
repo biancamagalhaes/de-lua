@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, View} from 'react-native';
+import { SafeAreaView, StatusBar, View, TouchableOpacity, Image} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import AddDiaryContainer from '../../container/AddDiary';
@@ -27,7 +27,10 @@ const AddDiary = ({ navigation }: Props) => {
         <View style={{ flex: 1, backgroundColor: colors.white }}>
             <SafeAreaView style={styles.safeAreaContainer}>
                 <StatusBar barStyle="dark-content" />
-                <AddDiaryContainer onClick={(id: number) => navigation.navigate('ViewDiaries', {userID: id})}/>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image source={require('../../images/arrow.png')} style={styles.image}/>
+                </TouchableOpacity>
+                <AddDiaryContainer onClick={() => navigation.navigate('ViewDiaries')}/>
             </SafeAreaView>
         </View>
     );

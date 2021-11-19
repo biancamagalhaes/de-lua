@@ -4,7 +4,7 @@
 
 CREATE TABLE psychologist (
 	psychologist_id serial PRIMARY KEY,
-	name VARCHAR ( 50 ) UNIQUE NOT NULL,
+	name VARCHAR ( 50 ) NOT NULL,
 	password VARCHAR ( 50 ) NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
 	crp VARCHAR ( 5 ) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE psychologist (
 
 CREATE TABLE "user" (
 	user_id serial PRIMARY KEY,
-	name VARCHAR ( 50 ) UNIQUE NOT NULL,
+	name VARCHAR ( 50 ) NOT NULL,
 	password VARCHAR ( 50 ) NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
 	age int NOT NULL,

@@ -92,11 +92,6 @@ const Onboarding = ({ navigation, loginPsychologist }: Props) => {
                         )}
                         name="password"
                     />
-                    <TouchableOpacity style={{ alignItems: 'flex-end' }}>
-                        <Text style={[styles.subtitle, { fontSize: 12 }]}>
-                            Esqueci a senha
-                        </Text>
-                    </TouchableOpacity>
                 </View>
                 <View style={styles.buttonContainer}>
                     <Button

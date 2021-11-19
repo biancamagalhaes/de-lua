@@ -1,0 +1,6 @@
+module Pods_DeLua {
+  umbrella header "Pods-DeLua-umbrella.h"
+
+  export *
+  module * { export * }
+}

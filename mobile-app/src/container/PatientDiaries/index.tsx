@@ -72,7 +72,7 @@ const DiaryComponent = ({index, date, text, emotion, onClick}: DiaryProps) => (
 );
 
 export default connect(
-    (state: {diary: any, psychologist: any}) => ({
+    (state: {diary: any, user: any}) => ({
         diaries: state.diary,
         psychologist: state.user,
     }), (dispatch: any) => ({

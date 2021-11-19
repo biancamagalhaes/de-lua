@@ -32,7 +32,6 @@ const AddDiary = ({ navigation, route }: Props) => {
                 <ViewDiariesContainer 
                     navigateDiary={(id: number) => navigation.navigate('ViewDiary', {diaryID: id})}
                     navigationBack={() => navigation.goBack()}
-                    userID={route.params.userID}
                 /> 
             </SafeAreaView>
         </View>

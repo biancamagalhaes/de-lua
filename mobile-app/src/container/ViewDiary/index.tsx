@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Button from '../../components/Button';
 import styles from './style';
 import colors from '../../config/colors';
+import luas from '../../config/luas';
 
 import { loadDiary, diary, getDiary, comment } from "../../ducks/diary";
 
@@ -19,9 +20,13 @@ type Props = {
 const ViewDiary = ({buttonClick, navigationBack, diaryID, loadDiary, diary} : Props) => {
 
     useEffect(() => {
-        console.log('--------> ', diaryID);
         diaryID && loadDiary(diaryID.toString());
     }, []);
+
+    const getImage = (feeling: string) => {
+        const id = luas.findIndex((l) => l.sentimento === feeling);
+        return luas[id].image;
+    }
 
     return (
         <ScrollView
@@ -36,7 +41,7 @@ const ViewDiary = ({buttonClick, navigationBack, diaryID, loadDiary, diary} : Pr
                     <Text style={styles.title}>{diary.createdOn}</Text>
                     <Text style={styles.subtitle}>Sentimento: {diary.feeling}</Text>
                 </View>
-                <Image source={require('../../images/lua_raiva.png')} style={styles.emotion}/>
+                <Image source={getImage(diary.feeling)} style={styles.emotion}/>
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.subtitle}>Texto: </Text>

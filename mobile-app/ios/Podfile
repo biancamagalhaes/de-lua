@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'LiveCloset' do
+target 'DeLua' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   
@@ -15,7 +15,7 @@ target 'LiveCloset' do
     :hermes_enabled => false
   )
 
-  target 'LiveClosetTests' do
+  target 'DeLuaTests' do
     inherit! :complete
     # Pods for testing
   end

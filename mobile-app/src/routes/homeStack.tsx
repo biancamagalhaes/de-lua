@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import Home from '../screens/Home';
 import AddDiary from '../screens/AddDiary';
 import ViewDiaries from '../screens/ViewDiaries';
 import ViewDiary from '../screens/ViewDiary';
@@ -10,6 +11,7 @@ import PatientDiaries from '../screens/PatientDiaries';
 import PatientDiary from '../screens/PatientDiary';
 
 export type RootStackParamList = {
+    Home: undefined;
     AddDiary: undefined;
     ViewDiaries: undefined;
     ViewDiary: undefined;
@@ -24,12 +26,13 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export function PatientStack() {
     return (
         <Stack.Navigator
-            initialRouteName= "AddDiary"
+            initialRouteName= "Home"
             screenOptions={{
                 headerShown: false
             }}
         >
             <Stack.Group>
+                <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="AddDiary" component={AddDiary} />
                 <Stack.Screen name="ViewDiaries" component={ViewDiaries} />
                 <Stack.Screen name="ViewDiary" component={ViewDiary} />

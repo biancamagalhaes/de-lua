@@ -5,5 +5,10 @@ export default StyleSheet.create({
     safeAreaContainer: {
         flex: 1,
         backgroundColor: colors.white
-    }
+    },
+    image: {
+        width: 20,
+        height: 20,
+        marginLeft: 20,
+    },
 });
